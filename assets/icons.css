@@ -1,0 +1,91 @@
+/* Colored line icon pack bindings */
+.btn-icon,
+.distribute-icon,
+.tie-icon,
+.victory-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -0.26em;
+}
+
+.btn-icon {
+  margin-right: 0.55em;
+}
+
+.distribute-icon,
+.tie-icon,
+.victory-icon {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 14px;
+}
+
+.icon-menu-play { background-image: url('svg/menu-play.svg'); }
+.icon-menu-words { background-image: url('svg/menu-words.svg'); }
+.icon-menu-rules { background-image: url('svg/menu-rules.svg'); }
+.icon-menu-settings { background-image: url('svg/menu-settings.svg'); }
+.icon-start-game { background-image: url('svg/start-game.svg'); }
+.icon-role-reminder { background-image: url('svg/role-reminder.svg'); }
+.icon-pass-phone { background-image: url('svg/pass-phone.svg'); }
+.icon-vote { background-image: url('svg/vote.svg'); }
+.icon-tie { background-image: url('svg/tie.svg'); }
+.icon-victory { background-image: url('svg/victory.svg'); }
+.icon-replay { background-image: url('svg/replay.svg'); }
+.icon-home { background-image: url('svg/home.svg'); }
+.icon-import { background-image: url('svg/import.svg'); }
+.icon-export { background-image: url('svg/export.svg'); }
+
+.role-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -0.2em;
+  flex-shrink: 0;
+}
+
+.role-icon-sm {
+  width: 1.3em;
+  height: 1.3em;
+}
+
+.role-icon-md {
+  width: 1.55em;
+  height: 1.55em;
+  margin-right: 0.55em;
+}
+
+.icon-role-lover { background-image: url('svg/role-lover.svg'); }
+.icon-role-ghost { background-image: url('svg/role-ghost.svg'); }
+.icon-role-vengeful { background-image: url('svg/role-vengeful.svg'); }
+.icon-role-boomerang { background-image: url('svg/role-boomerang.svg'); }
+.icon-role-goddess { background-image: url('svg/role-goddess.svg'); }
+
+.preset-icon {
+  display: inline-block;
+  width: 1.45em;
+  height: 1.45em;
+  margin-right: 0.55em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: -0.22em;
+  flex-shrink: 0;
+}
+
+.icon-preset-classic { background-image: url('svg/preset-classic.svg'); }
+.icon-preset-haunted { background-image: url('svg/preset-haunted.svg'); }
+.icon-preset-love { background-image: url('svg/preset-love.svg'); }
+.icon-preset-strategic { background-image: url('svg/preset-strategic.svg'); }
+.icon-preset-vendetta { background-image: url('svg/preset-vendetta.svg'); }
+.icon-preset-drama { background-image: url('svg/preset-drama.svg'); }
+.icon-preset-mindgames { background-image: url('svg/preset-mindgames.svg'); }
+.icon-preset-fulldrama { background-image: url('svg/preset-fulldrama.svg'); }
+.icon-preset-chaos { background-image: url('svg/preset-chaos.svg'); }
+.icon-preset-custom { background-image: url('svg/preset-custom.svg'); }

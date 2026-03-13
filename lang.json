@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "lang": "fr",
+    "langName": "Français",
+    "version": "1.0"
+  },
+  "app": {
+    "title": "Undercover",
+    "subtitle": "Trouve l'imposteur parmi vous",
+    "loading": "Chargement..."
+  },
+  "menu": {
+    "play": "Nouvelle partie",
+    "rules": "Règles du jeu",
+    "settings": "Paramètres",
+    "credits": "Crédits"
+  },
+  "setup": {
+    "title": "Configuration de la partie",
+    "playerCount": "Nombre de joueurs",
+    "addPlayer": "Ajouter un joueur",
+    "playerPlaceholder": "Nom du joueur {n}",
+    "removePlayer": "Retirer",
+    "preset": "Preset de partie",
+    "presets": {
+      "classic": {
+        "name": "Classique",
+        "desc": "Civils vs Undercover, pas de rôles spéciaux."
+      },
+      "mrwhite": {
+        "name": "Mr. White",
+        "desc": "Un joueur sans mot tente de deviner."
+      },
+      "spicy": {
+        "name": "Pimenté",
+        "desc": "Tous les rôles spéciaux activés !"
+      },
+      "custom": {
+        "name": "Personnalisé",
+        "desc": "Configure toi-même les rôles."
+      }
+    },
+    "roles": "Rôles spéciaux",
+    "categorySelect": "Catégorie de mots",
+    "categoryRandom": "Aléatoire",
+    "start": "Lancer la partie",
+    "errors": {
+      "minPlayers": "Il faut au moins {min} joueurs",
+      "maxPlayers": "Maximum {max} joueurs",
+      "duplicateName": "Ce nom est déjà pris",
+      "emptyName": "Le nom ne peut pas être vide",
+      "noCategory": "Sélectionne au moins une catégorie"
+    }
+  },
+  "distribution": {
+    "title": "Distribution des mots",
+    "passTo": "Passe le téléphone à {player}",
+    "ready": "Je suis {player}",
+    "tapToReveal": "Appuie longuement pour voir ton mot",
+    "revealing": "Maintiens l'appui...",
+    "yourWord": "Ton mot :",
+    "yourRole": "Ton rôle spécial :",
+    "noWord": "Tu es Mr. White — pas de mot à toi de bluffer !",
+    "ghostNotice": "Tu es le Fantôme — tu continues après ta mort",
+    "loversNotice": "Tu es lié(e) à un autre joueur — si l'un meurt, l'autre aussi",
+    "vengefulNotice": "Tu es la Vengeuse — si tu es éliminée, tu emportes quelqu'un",
+    "boomerangNotice": "Tu es le Boomerang — tu peux retourner un vote une fois",
+    "clairvoyantNotice": "Tu es le Clairvoyant — tu peux espionner un joueur une fois",
+    "understood": "J'ai compris !",
+    "nextPlayer": "Joueur suivant",
+    "allDistributed": "Tout le monde a son mot !",
+    "startGame": "Commencer la partie"
+  },
+  "discussion": {
+    "title": "Discussion",
+    "round": "Manche {n}",
+    "timerRemaining": "{time}",
+    "timerUp": "Temps écoulé !",
+    "speakerTurn": "C'est au tour de {player} de parler",
+    "goToVote": "Passer au vote",
+    "tip": "Décrivez votre mot sans le dire directement !"
+  },
+  "vote": {
+    "title": "Vote",
+    "round": "Manche {n}",
+    "instruction": "Chaque joueur vote pour éliminer un suspect",
+    "playerVoting": "{player}, à toi de voter :",
+    "confirmVote": "Confirmer mon vote",
+    "changeVote": "Changer",
+    "skipVote": "Ne pas voter",
+    "tieDetected": "Égalité entre {players} !",
+    "revote": "Revote uniquement entre les ex-aequo",
+    "tieNoElim": "Nouvelle égalité — personne n'est éliminé",
+    "eliminated": "{player} a été éliminé(e) !",
+    "roleReveal": {
+      "civil": "C'était un Civil... Mauvais choix !",
+      "undercover": "C'était un Undercover ! Bien joué !",
+      "mrwhite": "C'était Mr. White !"
+    }
+  },
+  "mrWhite": {
+    "title": "Dernière chance pour Mr. White !",
+    "instruction": "{player}, tu peux tenter de deviner le mot des Civils pour gagner seul.",
+    "placeholder": "Entre ta réponse...",
+    "submit": "Valider",
+    "correct": "Mr. White a deviné le mot ! Victoire !",
+    "wrong": "Mauvaise réponse ! Mr. White est éliminé.",
+    "timer": "Tu as {seconds} secondes"
+  },
+  "vengeance": {
+    "title": "Vengeance !",
+    "instruction": "{player} a été éliminé(e) et active sa Vengeance !",
+    "choose": "Choisis un joueur à emporter avec toi :",
+    "confirm": "Confirmer la vengeance",
+    "result": "{target} est emporté(e) par la Vengeance de {player} !"
+  },
+  "boomerang": {
+    "title": "Boomerang !",
+    "instruction": "{player} active son pouvoir Boomerang !",
+    "description": "Le vote de {voter} contre toi est retourné : {voter} est éliminé(e) à ta place !",
+    "activate": "Activer le Boomerang",
+    "pass": "Ne pas utiliser"
+  },
+  "clairvoyant": {
+    "title": "Clairvoyance",
+    "instruction": "{player}, choisis un joueur à espionner :",
+    "result": "{target} est : {role}",
+    "alreadyUsed": "Tu as déjà utilisé ton pouvoir.",
+    "activate": "Espionner",
+    "pass": "Passer"
+  },
+  "lovers": {
+    "deathLinked": "{player} était lié(e) à {partner} — les deux sont éliminés !"
+  },
+  "ghost": {
+    "notice": "{player} est maintenant un Fantôme et peut encore influencer les discussions.",
+    "cannotVote": "Les Fantômes ne peuvent pas voter.",
+    "tag": "( Fantôme)"
+  },
+  "results": {
+    "title": "Fin de la partie !",
+    "civilWin": "Victoire des Civils !",
+    "civilWinDesc": "Tous les Undercover ont été démasqués.",
+    "underworldWin": "Victoire des Undercover !",
+    "underworldWinDesc": "Les Undercover ont infiltré le groupe avec succès.",
+    "mrWhiteWin": "Victoire de Mr. White !",
+    "mrWhiteWinDesc": "Mr. White a deviné le mot des Civils.",
+    "wordsReveal": "Les mots étaient :",
+    "civilWord": "Mot des Civils : {word}",
+    "undercoverWord": "Mot des Undercover : {word}",
+    "playerList": "Récapitulatif des joueurs :",
+    "playAgain": "Rejouer",
+    "newGame": "Nouvelle partie",
+    "backToMenu": "Menu principal"
+  },
+  "reviewWord": {
+    "title": "Revoir mon mot",
+    "instruction": "Appui long (2s) sur ton nom pour revoir ton mot",
+    "holdToReveal": "Maintiens l'appui...",
+    "close": "Fermer"
+  },
+  "activeRoles": {
+    "title": "Rôles actifs dans cette partie",
+    "none": "Aucun rôle spécial",
+    "close": "Fermer"
+  },
+  "roles": {
+    "civil": {
+      "name": "Civil",
+      "icon": "civil",
+      "shortDesc": "Trouve les Undercover."
+    },
+    "undercover": {
+      "name": "Undercover",
+      "icon": "undercover",
+      "shortDesc": "Fonds-toi parmi les Civils."
+    },
+    "mrwhite": {
+      "name": "Mr. White",
+      "icon": "mrwhite",
+      "shortDesc": "Pas de mot. Devine celui des Civils pour gagner."
+    },
+    "lovers": {
+      "name": "Amoureux",
+      "icon": "lovers",
+      "shortDesc": "Deux joueurs liés. Si l'un meurt, l'autre aussi."
+    },
+    "ghost": {
+      "name": "Fantôme",
+      "icon": "ghost",
+      "shortDesc": "Continue d'influencer les discussions après sa mort."
+    },
+    "vengeful": {
+      "name": "Vengeuse",
+      "icon": "vengeful",
+      "shortDesc": "Quand elle est éliminée, elle emporte un joueur avec elle."
+    },
+    "boomerang": {
+      "name": "Boomerang",
+      "icon": "boomerang",
+      "shortDesc": "Peut retourner un vote contre son auteur, une fois par partie."
+    },
+    "clairvoyant": {
+      "name": "Clairvoyant",
+      "icon": "clairvoyant",
+      "shortDesc": "Peut espionner le rôle d'un joueur, une fois par partie."
+    }
+  },
+  "rules": {
+    "title": "Règles du jeu",
+    "sections": {
+      "goal": {
+        "title": "But du jeu",
+        "content": "Le but dépend de ton camp. Les Civils doivent démasquer les Undercover (et Mr. White si présent). Les Undercover doivent survivre assez longtemps pour atteindre la parité avec les Civils. Mr. White, lui, n'a pas de mot et tente de lire la table pour survivre puis deviner le mot Civil."
+      },
+      "roles": {
+        "title": "Les rôles",
+        "content": "En début de partie, chaque joueur reçoit secrètement une identité. Les Civils partagent le même mot. Les Undercover ont un mot proche mais différent, ce qui rend leurs indices presque crédibles. Mr. White ne reçoit aucun mot et doit improviser sans se faire repérer."
+      },
+      "rounds": {
+        "title": "Déroulement",
+        "content": "Une manche suit ce rythme : distribution secrète, tour de parole, débat libre, puis vote caché. Au tour de parole, chacun donne un indice sans prononcer son mot. Après discussion, tout le monde vote pour éliminer un suspect. Le jeu continue manche après manche jusqu'à une condition de victoire."
+      },
+      "victory": {
+        "title": "Conditions de victoire",
+        "content": "Les Civils gagnent quand tous les Undercover et Mr. White sont éliminés. Les Undercover gagnent quand ils sont aussi nombreux que les Civils restants. Si Mr. White est éliminé, il a une dernière chance : s'il devine le mot Civil, il gagne seul immédiatement."
+      },
+      "specialRoles": {
+        "title": "Rôles spéciaux",
+        "content": "Les rôles spéciaux ajoutent des retournements : les Amoureux peuvent tomber ensemble ou gagner ensemble à deux; le Fantôme peut continuer à peser dans la partie après sa mort; la Vengeuse élimine un joueur en représailles; le Boomerang peut renverser un vote une fois; le Clairvoyant peut révéler discrètement le rôle d'un joueur une fois."
+      }
+    }
+  },
+  "common": {
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "back": "Retour",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "player": "Joueur",
+    "players": "Joueurs",
+    "or": "ou",
+    "and": "et"
+  },
+  "notifications": {
+    "copied": "Copié !",
+    "saved": "Sauvegardé !",
+    "error": "Une erreur est survenue",
+    "offline": "Pas de connexion internet"
+  }
+}

@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#c9a84c" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Undercover" />
+    <meta
+      name="description"
+      content="Jeu de déduction sociale Undercover - Trouvez les imposteurs !"
+    />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0f'/%3E%3Cellipse cx='50' cy='45' rx='32' ry='18' fill='none' stroke='%23c9a84c' stroke-width='3'/%3E%3Ccircle cx='50' cy='45' r='8' fill='%23c9a84c'/%3E%3Ctext x='50' y='82' font-size='22' text-anchor='middle' fill='%23c9a84c' font-family='serif'%3EUC%3C/text%3E%3C/svg%3E"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0f'/%3E%3Cellipse cx='50' cy='45' rx='32' ry='18' fill='none' stroke='%23c9a84c' stroke-width='3'/%3E%3Ccircle cx='50' cy='45' r='8' fill='%23c9a84c'/%3E%3Ctext x='50' y='82' font-size='22' text-anchor='middle' fill='%23c9a84c' font-family='serif'%3EUC%3C/text%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <title>Undercover</title>
+  </head>
+  <body>
+    <!-- Fond animé -->
+    <div class="bg-animation">
+      <div class="bg-blob bg-blob-1"></div>
+      <div class="bg-blob bg-blob-2"></div>
+      <div class="bg-blob bg-blob-3"></div>
+    </div>
+
+    <div id="app">
+      <!-- ==================== ÉCRAN D'ACCUEIL ==================== -->
+      <section id="screen-home" class="screen active">
+        <div class="screen-content home-content">
+          <div class="logo-container">
+            <img
+              class="logo-icon"
+              width="80"
+              height="80"
+              alt="Logo Undercover"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23c9a84c'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='60' cy='55' rx='50' ry='30' fill='none' stroke='url(%23g)' stroke-width='3'/%3E%3Cellipse cx='60' cy='55' rx='22' ry='22' fill='none' stroke='url(%23g)' stroke-width='2.5'/%3E%3Ccircle cx='60' cy='55' r='10' fill='url(%23g)'/%3E%3Cpath d='M10 55 Q60 15 110 55' fill='none' stroke='url(%23g)' stroke-width='2' opacity='0.5'/%3E%3Cpath d='M10 55 Q60 95 110 55' fill='none' stroke='url(%23g)' stroke-width='2' opacity='0.5'/%3E%3C/svg%3E"
+            />
+            <h1 class="logo-title glitch-text" data-text="UNDERCOVER">
+              UNDERCOVER
+            </h1>
+            <p class="logo-subtitle">Jeu de déduction sociale</p>
+          </div>
+
+          <nav class="home-nav">
+            <button class="btn btn-primary btn-lg" data-navigate="screen-setup">
+              <span class="btn-icon icon-menu-play" aria-hidden="true"></span> Nouvelle Partie
+            </button>
+            <button class="btn btn-secondary" data-navigate="screen-words">
+              <span class="btn-icon icon-menu-words" aria-hidden="true"></span> Gérer les mots
+            </button>
+            <button class="btn btn-secondary" data-navigate="screen-rules">
+              <span class="btn-icon icon-menu-rules" aria-hidden="true"></span> Règles du jeu
+            </button>
+            <button class="btn btn-secondary" data-navigate="screen-settings">
+              <span class="btn-icon icon-menu-settings" aria-hidden="true"></span> Paramètres
+            </button>
+          </nav>
+
+          <footer class="home-footer">v1.0</footer>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE CONFIGURATION ==================== -->
+      <section id="screen-setup" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <button
+              class="btn-back"
+              data-navigate="screen-home"
+              aria-label="Retour"
+            >
+              ‹
+            </button>
+            <h2 class="screen-title">Configuration</h2>
+          </header>
+
+          <div class="setup-form">
+            <!-- Nombre de joueurs -->
+            <div class="form-group">
+              <label class="form-label">Nombre de joueurs</label>
+              <div class="slider-group">
+                <input
+                  type="range"
+                  id="player-count"
+                  class="custom-slider"
+                  min="3"
+                  max="20"
+                  value="5"
+                />
+                <span class="slider-value" id="player-count-value">5</span>
+              </div>
+            </div>
+
+            <!-- Noms des joueurs -->
+            <div class="form-group">
+              <label class="form-label">Noms des joueurs</label>
+              <div id="player-names-container" class="player-names-grid">
+                <!-- Champs générés dynamiquement -->
+              </div>
+            </div>
+
+            <!-- Nombre d'Undercovers -->
+            <div class="form-group">
+              <label class="form-label">Nombre d'Undercovers</label>
+              <div class="slider-group">
+                <input
+                  type="range"
+                  id="undercover-count"
+                  class="custom-slider"
+                  min="1"
+                  max="1"
+                  value="1"
+                />
+                <span class="slider-value" id="undercover-count-value">1</span>
+              </div>
+            </div>
+
+            <!-- Mr. White -->
+            <div class="form-group toggle-group">
+              <label class="form-label">Mr. White</label>
+              <label class="toggle">
+                <input type="checkbox" id="mr-white-toggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <!-- Catégorie de mots -->
+            <div class="form-group">
+              <label class="form-label">Catégorie de mots</label>
+              <div class="custom-select-wrapper">
+                <select id="word-category" class="custom-select">
+                  <option value="all">Toutes catégories</option>
+                  <option value="nourriture">Nourriture</option>
+                  <option value="animaux">Animaux</option>
+                  <option value="lieux">Lieux</option>
+                  <option value="objets">Objets</option>
+                  <option value="metiers">Métiers</option>
+                  <option value="sport">Sport</option>
+                  <option value="cinema">Cinéma & Séries</option>
+                  <option value="musique">Musique</option>
+                  <option value="technologie">Technologie</option>
+                  <option value="quotidien">Vie quotidienne</option>
+                  <option value="concepts">Concepts abstraits</option>
+                  <option value="celebrites">Personnages célèbres</option>
+                  <option value="custom">Mots personnalisés</option>
+                </select>
+                <span class="select-arrow">›</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preset de partie</label>
+              <div id="preset-grid" class="preset-grid"></div>
+              <div id="custom-roles-wrap" class="custom-roles-wrap" hidden>
+                <label class="form-label">Rôles personnalisés</label>
+                <div class="custom-roles-grid">
+                  <label class="custom-role-toggle"
+                    ><input type="checkbox" id="custom-role-lover" />
+                    <span class="role-icon role-icon-sm icon-role-lover" aria-hidden="true"></span>
+                    Amoureux</label
+                  >
+                  <label class="custom-role-toggle"
+                    ><input type="checkbox" id="custom-role-ghost" />
+                    <span class="role-icon role-icon-sm icon-role-ghost" aria-hidden="true"></span>
+                    Fantôme</label
+                  >
+                  <label class="custom-role-toggle"
+                    ><input type="checkbox" id="custom-role-vengeful" />
+                    <span class="role-icon role-icon-sm icon-role-vengeful" aria-hidden="true"></span>
+                    Vengeuse</label
+                  >
+                  <label class="custom-role-toggle"
+                    ><input type="checkbox" id="custom-role-boomerang" />
+                    <span class="role-icon role-icon-sm icon-role-boomerang" aria-hidden="true"></span>
+                    Boomerang</label
+                  >
+                  <label class="custom-role-toggle"
+                    ><input type="checkbox" id="custom-role-goddess" />
+                    <span class="role-icon role-icon-sm icon-role-goddess" aria-hidden="true"></span>
+                    Déesse</label
+                  >
+                </div>
+              </div>
+              <p
+                id="preset-min-players-msg"
+                class="preset-min-players-msg"
+                hidden
+              ></p>
+            </div>
+
+            <!-- Validation -->
+            <div id="setup-error" class="form-error" hidden></div>
+
+            <!-- Boutons -->
+            <button class="btn btn-primary btn-lg" id="btn-start-game">
+              <span class="btn-icon icon-start-game" aria-hidden="true"></span> Lancer la partie
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-briefing" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <button
+              class="btn-back"
+              data-navigate="screen-setup"
+              aria-label="Retour"
+            >
+              ‹
+            </button>
+            <h2 class="screen-title"> Rôles actifs dans cette partie</h2>
+          </header>
+          <div id="briefing-cards" class="briefing-cards"></div>
+          <div class="victory-actions">
+            <button class="btn btn-primary btn-lg" id="btn-briefing-start">
+              <span class="btn-icon icon-start-game" aria-hidden="true"></span> Lancer la partie
+            </button>
+            <button class="btn btn-secondary" id="btn-briefing-top">
+              <span class="btn-icon icon-role-reminder" aria-hidden="true"></span> Revoir les rôles
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE DISTRIBUTION DES MOTS ==================== -->
+      <section id="screen-distribute" class="screen">
+        <div class="screen-content distribute-content">
+          <!-- Phase 1 : Transition -->
+          <div id="distribute-transition" class="distribute-phase">
+            <div class="distribute-icon icon-pass-phone" aria-hidden="true"></div>
+            <p class="distribute-instruction">Passe le téléphone à</p>
+            <p class="distribute-player-name" id="distribute-target-name">—</p>
+            <button class="btn btn-primary btn-lg" id="btn-i-am-player">
+              Je suis <span id="distribute-btn-name">—</span>
+            </button>
+          </div>
+
+          <!-- Phase 2 : Révélation du mot -->
+          <div id="distribute-reveal" class="distribute-phase" hidden>
+            <p class="distribute-role-label" id="distribute-role-label">
+              Ton mot :
+            </p>
+            <div class="word-card" id="distribute-word-card">
+              <p class="word-display" id="distribute-word">—</p>
+            </div>
+            <div
+              id="distribute-special-info"
+              class="distribute-special-info"
+              hidden
+            ></div>
+            <p class="distribute-hint" id="distribute-hint">
+              Mémorise-le bien, ne le montre à personne !
+            </p>
+            <button class="btn btn-primary btn-lg" id="btn-word-seen">
+              J'ai vu mon mot
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE TOUR DE JEU ==================== -->
+      <section id="screen-turn" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <h2 class="screen-title" id="turn-title">Tour 1</h2>
+          </header>
+
+          <p class="turn-instruction">
+            Chaque joueur décrit son mot à l'oral,
+            <strong>sans le dire directement</strong>.
+          </p>
+
+          <div id="players-turn-list" class="players-list">
+            <!-- Liste des joueurs générée dynamiquement -->
+          </div>
+
+          <div class="turn-actions">
+            <button class="btn btn-secondary" id="btn-next-speaker" hidden>
+              Joueur suivant →
+            </button>
+            <button class="btn btn-primary btn-lg" id="btn-go-vote" hidden>
+              <span class="btn-icon icon-vote" aria-hidden="true"></span> Passer au vote
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE VOTE ==================== -->
+      <section id="screen-vote" class="screen">
+        <div class="screen-content">
+          <!-- Phase 1 : Transition votant -->
+          <div id="vote-transition" class="vote-phase">
+            <div class="distribute-icon icon-vote" aria-hidden="true"></div>
+            <p class="distribute-instruction">Passe le téléphone à</p>
+            <p class="distribute-player-name" id="vote-target-name">—</p>
+            <button class="btn btn-primary btn-lg" id="btn-i-am-voter">
+              Je suis <span id="vote-btn-name">—</span>
+            </button>
+          </div>
+
+          <!-- Phase 2 : Choix du vote -->
+          <div id="vote-choice" class="vote-phase" hidden>
+            <h3 class="vote-title">Qui veux-tu éliminer ?</h3>
+            <div id="vote-candidates" class="vote-candidates-list">
+              <!-- Candidats générés dynamiquement -->
+            </div>
+            <div id="vote-confirm" class="vote-confirm" hidden>
+              <p>Tu votes contre <strong id="vote-confirm-name">—</strong> ?</p>
+              <div class="vote-confirm-actions">
+                <button class="btn btn-danger" id="btn-confirm-vote">
+                  Confirmer
+                </button>
+                <button class="btn btn-secondary" id="btn-cancel-vote">
+                  Annuler
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE RÉSULTATS DU VOTE ==================== -->
+      <section id="screen-vote-result" class="screen">
+        <div class="screen-content vote-result-content">
+          <div class="elimination-reveal">
+            <p class="elimination-label">Éliminé·e :</p>
+            <p class="eliminated-name" id="eliminated-name">—</p>
+            <div class="eliminated-role-badge" id="eliminated-role-badge">
+              <span id="eliminated-role">—</span>
+            </div>
+          </div>
+
+          <!-- Votes détaillés (optionnel) -->
+          <div id="vote-details" class="vote-details" hidden>
+            <h4>Détail des votes</h4>
+            <ul id="vote-details-list" class="vote-details-list"></ul>
+          </div>
+
+          <!-- Mr. White : devine le mot -->
+          <div id="mr-white-guess" class="mr-white-guess" hidden>
+            <p class="mr-white-prompt">
+              Mr. White, dernière chance ! Devine le mot des Civils :
+            </p>
+            <div class="mr-white-input-group">
+              <input
+                type="text"
+                id="mr-white-input"
+                class="form-input"
+                placeholder="Ton dernier mot..."
+                autocomplete="off"
+              />
+              <button class="btn btn-primary" id="btn-mr-white-guess">
+                Valider
+              </button>
+            </div>
+          </div>
+
+          <div class="vote-result-actions" id="vote-result-actions">
+            <button class="btn btn-primary btn-lg" id="btn-next-turn">
+              Tour suivant →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN D'ÉGALITÉ ==================== -->
+      <section id="screen-tie" class="screen">
+        <div class="screen-content tie-content">
+          <div class="tie-icon icon-tie" aria-hidden="true"></div>
+          <h2 class="screen-title">Égalité !</h2>
+          <p class="tie-message" id="tie-message">
+            Plusieurs joueurs ont reçu le même nombre de votes.
+          </p>
+          <div id="tie-players" class="tie-players-list">
+            <!-- Joueurs à égalité -->
+          </div>
+          <p class="tie-resolution" id="tie-resolution">
+            Personne n'est éliminé ce tour.
+          </p>
+          <button class="btn btn-primary btn-lg" id="btn-tie-continue">
+            Continuer
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE VICTOIRE ==================== -->
+      <section id="screen-victory" class="screen">
+        <div class="screen-content victory-content">
+          <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+          <div class="victory-icon icon-victory" aria-hidden="true"></div>
+          <h2 class="victory-title" id="victory-title">Victoire !</h2>
+          <p class="victory-message" id="victory-message">
+            Les Civils ont gagné !
+          </p>
+
+          <div class="recap-table-wrapper">
+            <table class="recap-table" id="recap-table">
+              <thead>
+                <tr>
+                  <th>Joueur</th>
+                  <th>Rôle base</th>
+                  <th>Rôle spécial</th>
+                  <th>Mot</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody id="recap-table-body">
+                <!-- Lignes générées dynamiquement -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="victory-actions">
+            <button class="btn btn-primary btn-lg" id="btn-replay">
+              <span class="btn-icon icon-replay" aria-hidden="true"></span> Rejouer
+            </button>
+            <button
+              class="btn btn-secondary"
+              id="btn-home"
+              data-navigate="screen-home"
+            >
+              <span class="btn-icon icon-home" aria-hidden="true"></span> Menu principal
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DES RÈGLES ==================== -->
+      <section id="screen-rules" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <button
+              class="btn-back"
+              data-navigate="screen-home"
+              aria-label="Retour"
+            >
+              ‹
+            </button>
+            <h2 class="screen-title">Règles du jeu</h2>
+          </header>
+
+          <div class="rules-content">
+            <div class="rule-section">
+              <h3 class="rule-title"> Principe</h3>
+              <p>
+                Undercover est un jeu de déduction sociale. Un appareil passe de
+                main en main. Chaque joueur reçoit secrètement un mot et doit
+                trouver qui est l'imposteur !
+              </p>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Les rôles</h3>
+              <ul class="rule-list">
+                <li>
+                  <strong class="role-civil">Civils</strong> – Ils forment la
+                  majorité et partagent exactement le même mot. Leur objectif
+                  est d'éliminer tous les imposteurs en restant cohérents sans
+                  être trop précis.
+                </li>
+                <li>
+                  <strong class="role-undercover">Undercovers</strong> – Ils
+                  reçoivent un mot proche (mais différent) du mot Civil. Ils
+                  ignorent leur camp exact au départ et doivent semer le doute
+                  tout en évitant de se trahir.
+                </li>
+                <li>
+                  <strong class="role-mrwhite">Mr. White</strong> – Il ne reçoit
+                  aucun mot. Il doit improviser avec les indices entendus pour
+                  survivre, puis tenter un coup final s'il est éliminé. (Rôle
+                  optionnel)
+                </li>
+              </ul>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Rôles spéciaux</h3>
+              <ul class="rule-list">
+                <li>
+                  <strong> Amoureux</strong> – Deux joueurs sont liés
+                  secrètement. Si l'un est éliminé, l'autre est éliminé
+                  immédiatement aussi. Si les deux amoureux restent les deux
+                  derniers survivants, ils gagnent ensemble.
+                </li>
+                <li>
+                  <strong> Fantôme</strong> – Le premier joueur éliminé
+                  revient comme Fantôme. Il ne parle plus pendant les tours,
+                  mais il continue à voter avec une voix réduite (demi-vote).
+                </li>
+                <li>
+                  <strong> Vengeuse</strong> – Si la Vengeuse est éliminée,
+                  elle choisit immédiatement un joueur vivant qui est éliminé à
+                  son tour.
+                </li>
+                <li>
+                  <strong> Boomerang</strong> – Si le porteur du Boomerang est
+                  le plus voté, il survit une fois. À la place, c'est le
+                  deuxième joueur le plus voté qui est éliminé (s'il existe).
+                </li>
+                <li>
+                  <strong>Déesse de la Justice</strong> – En cas d'égalité au
+                  vote, la Déesse (si elle est vivante) choisit elle-même qui
+                  sera éliminé parmi les joueurs à égalité.
+                </li>
+              </ul>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Déroulement d'un tour</h3>
+              <ol class="rule-list rule-list-ordered">
+                <li>
+                  <strong>Description</strong> – Chaque joueur décrit son mot à
+                  l'oral avec un seul indice, <em>sans dire le mot</em>.
+                </li>
+                <li>
+                  <strong>Débat</strong> – Les joueurs discutent et tentent
+                  d'identifier les Undercovers.
+                </li>
+                <li>
+                  <strong>Vote</strong> – Chacun vote secrètement pour éliminer
+                  un suspect. Le joueur avec le plus de votes est éliminé.
+                </li>
+              </ol>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Mr. White éliminé</h3>
+              <p>
+                Si Mr. White est éliminé, il a
+                <strong>une dernière chance</strong> : il peut tenter de deviner
+                le mot des Civils. S'il réussit, il gagne seul !
+              </p>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Conditions de victoire</h3>
+              <ul class="rule-list">
+                <li>
+                  <strong class="role-civil">Civils</strong> gagnent quand tous
+                  les Undercovers et Mr. White sont éliminés.
+                </li>
+                <li>
+                  <strong class="role-undercover">Undercovers</strong> gagnent
+                  s'ils atteignent la parité avec les Civils (autant
+                  d'Undercovers que de Civils).
+                </li>
+                <li>
+                  <strong class="role-mrwhite">Mr. White</strong> gagne s'il
+                  devine le mot des Civils après son élimination.
+                </li>
+              </ul>
+            </div>
+
+            <div class="rule-section">
+              <h3 class="rule-title"> Conseils</h3>
+              <ul class="rule-list">
+                <li>
+                  Soyez vague mais pas trop — il faut prouver que vous
+                  connaissez le mot sans trop en révéler.
+                </li>
+                <li>Observez les réactions des autres joueurs.</li>
+                <li>Un indice trop précis peut aider les Undercovers !</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DES PARAMÈTRES ==================== -->
+      <section id="screen-settings" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <button
+              class="btn-back"
+              data-navigate="screen-home"
+              aria-label="Retour"
+            >
+              ‹
+            </button>
+            <h2 class="screen-title">Paramètres</h2>
+          </header>
+
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-label">Votes détaillés</span>
+                <span class="setting-desc">Afficher qui a voté pour qui</span>
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="setting-show-votes" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-label">En cas d'égalité</span>
+                <span class="setting-desc"
+                  >Que faire quand le vote est à égalité</span
+                >
+              </div>
+              <div class="custom-select-wrapper select-sm">
+                <select id="setting-tie-rule" class="custom-select">
+                  <option value="nobody">Personne éliminé</option>
+                  <option value="revote">Revote</option>
+                </select>
+                <span class="select-arrow">›</span>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <span class="setting-label">Vibration</span>
+                <span class="setting-desc"
+                  >Retour haptique lors des actions</span
+                >
+              </div>
+              <label class="toggle">
+                <input type="checkbox" id="setting-vibration" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-reset">
+              <button class="btn btn-danger" id="btn-reset-settings">
+                Réinitialiser les paramètres
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ÉCRAN DE GESTION DES MOTS ==================== -->
+      <section id="screen-words" class="screen">
+        <div class="screen-content">
+          <header class="screen-header">
+            <button
+              class="btn-back"
+              data-navigate="screen-home"
+              aria-label="Retour"
+            >
+              ‹
+            </button>
+            <h2 class="screen-title">Gestion des mots</h2>
+          </header>
+
+          <!-- Formulaire d'ajout -->
+          <div class="card words-add-card">
+            <h3 class="card-title">Ajouter une paire</h3>
+            <div class="form-group">
+              <input
+                type="text"
+                id="word-civil"
+                class="form-input"
+                placeholder="Mot Civil"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="word-undercover"
+                class="form-input"
+                placeholder="Mot Undercover"
+                autocomplete="off"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                id="word-new-category"
+                class="form-input"
+                placeholder="Catégorie (existante ou nouvelle)"
+                autocomplete="off"
+                list="categories-datalist"
+              />
+              <datalist id="categories-datalist"></datalist>
+            </div>
+            <button class="btn btn-primary" id="btn-add-word">Ajouter</button>
+          </div>
+
+          <!-- Import / Export -->
+          <div class="words-actions">
+            <button class="btn btn-secondary" id="btn-import-words">
+              <span class="btn-icon icon-import" aria-hidden="true"></span> Importer JSON
+            </button>
+            <button class="btn btn-secondary" id="btn-export-words">
+              <span class="btn-icon icon-export" aria-hidden="true"></span> Exporter JSON
+            </button>
+            <input type="file" id="import-file-input" accept=".json" hidden />
+          </div>
+
+          <!-- Liste des catégories -->
+          <div id="words-categories-list" class="words-categories">
+            <!-- Accordéons générés dynamiquement -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

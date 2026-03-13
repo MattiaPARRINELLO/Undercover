@@ -1,0 +1,27 @@
+{
+  "name": "Undercover",
+  "short_name": "Undercover",
+  "description": "Jeu de déduction sociale - Trouvez les imposteurs !",
+  "start_url": "./index.html",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0f",
+  "theme_color": "#c9a84c",
+  "lang": "fr",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='80' fill='%230a0a0f'/><ellipse cx='256' cy='240' rx='180' ry='100' fill='none' stroke='%23c9a84c' stroke-width='12'/><ellipse cx='256' cy='240' rx='70' ry='70' fill='none' stroke='%23c9a84c' stroke-width='10'/><circle cx='256' cy='240' r='30' fill='%23c9a84c'/><text x='256' y='420' font-family='serif' font-size='72' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>UC</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='30' fill='%230a0a0f'/><ellipse cx='96' cy='85' rx='68' ry='38' fill='none' stroke='%23c9a84c' stroke-width='5'/><circle cx='96' cy='85' r='14' fill='%23c9a84c'/><text x='96' y='160' font-family='serif' font-size='32' font-weight='bold' fill='%23c9a84c' text-anchor='middle'>UC</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
